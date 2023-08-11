@@ -8,7 +8,7 @@
 import SwiftUI
 
 public enum FillModeEnum {
-    case empty
+    case outline
     case fill
 }
 
@@ -24,13 +24,16 @@ public struct CheckmarkButtonView: View {
     private var fillImageName: String
     private var emptyImageName: String
     
-    public init(isSelected: Binding<Bool>, foregroundColor: Color = .primary, fillMode: FillModeEnum = .empty, maxWidth: CGFloat = 40.0) {
+    public init(isSelected: Binding<Bool>,
+                foregroundColor: Color = .primary,
+                fillMode: FillModeEnum = .outline,
+                maxWidth: CGFloat = 40.0) {
         _isSelected = isSelected
         self.foregroundColor = foregroundColor
         self.fillMode = fillMode
         self.maxWidth = maxWidth
-        emptyImageName = fillMode == .empty ? "square" : "square.fill"
-        fillImageName = fillMode == .empty ? "checkmark.square" : "checkmark.square.fill"
+        emptyImageName = fillMode == .outline ? "square" : "square.fill"
+        fillImageName = fillMode == .outline ? "checkmark.square" : "checkmark.square.fill"
     }
     
     public var body: some View {
