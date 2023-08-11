@@ -41,7 +41,6 @@ public struct CheckmarkButtonView: View {
         Button {
             isSelected.toggle()
         } label: {
-        
             Image(systemName: isSelected ? fillImageName : emptyImageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
